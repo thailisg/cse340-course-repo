@@ -1,31 +1,163 @@
-html,
-body {
-    background-color: lightblue;
-    font-family: Arial, sans-serif;
+/* ============ RESET ============== */
+
+:root {
+    --primary-color: #1f2937;
+    --secondary-color: #374151;
+    --background-color: #f4f6f8;
+    --card-color: #ffffff;
+    --border-color: #e5e7eb;
+    --text-color: #1a1a1a;
+    --accent-color: #2563eb;
+
+    --font-main: Arial, Helvetica, sans-serif;
+}
+
+* {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    nav {
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    font-family: var(--font-main);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
 
-        li {
-            display: inline;
-            margin-right: 15px;
-        }
+/* ==============NAVBAR============== */
 
-        a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
+nav {
+    background: var(--primary-color);
+    padding: 15px;
+}
 
-            &:hover {
-                color: #0066cc;
-            }
-        }
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* ==============MAIN CONTENT============== */
+
+main {
+    max-width: 50%;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* ==============HEADINGS============== */
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+/* ==============LIST CARDS============== */
+
+ul {
+    list-style: none;
+}
+
+li {
+    background: var(--card-color);
+    margin-bottom: 12px;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+/* ==============ORGANIZATION LOGOS============== */
+
+li img {
+    width: 40px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* ==============HOME LOGO============== */
+
+.main-logo {
+    display: block;
+    margin: 30px auto;
+    max-width: 300px;
+    width: 100%;
+}
+
+/* ==============FOOTER============== */
+
+footer {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* ==============RESPONSIVE DESIGN============== */
+
+/* ==============Tablets============== */
+
+@media (max-width: 768px) {
+
+    nav ul {
+        gap: 15px;
     }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    main {
+        padding: 30px 15px;
+    }
+
+}
+
+/* ==============Mobile============== */
+
+@media (max-width: 480px) {
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    main {
+        padding: 20px 12px;
+    }
+
+    li {
+        padding: 14px;
+    }
+
 }
