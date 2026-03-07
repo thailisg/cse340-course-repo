@@ -1,16 +1,19 @@
-/* ============ RESET ============== */
+/* -------------------- */
+/* CSS VARIABLES */
+/* -------------------- */
 
 :root {
-    --primary-color: #1f2937;
+    --primary-color: #111827;
     --secondary-color: #374151;
-    --background-color: #f4f6f8;
-    --card-color: #ffffff;
-    --border-color: #e5e7eb;
-    --text-color: #1a1a1a;
-    --accent-color: #2563eb;
-
+    --background-color: #f5f7fa;
+    --text-color: #1f2937;
+    --white: #ffffff;
     --font-main: Arial, Helvetica, sans-serif;
 }
+
+/* -------------------- */
+/* RESET */
+/* -------------------- */
 
 * {
     margin: 0;
@@ -18,146 +21,131 @@
     box-sizing: border-box;
 }
 
+/* -------------------- */
+/* BASE STYLES */
+/* -------------------- */
+
 body {
     font-family: var(--font-main);
+    line-height: 1.6;
     background-color: var(--background-color);
     color: var(--text-color);
-    line-height: 1.6;
+
+    min-height: 90vh;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
-/* ==============NAVBAR============== */
-
-nav {
-    background: var(--primary-color);
-    padding: 15px;
+.ul-all {
+    list-style: none;
 }
 
-nav ul {
+/* -------------------- */
+/* NAVIGATION */
+/* -------------------- */
+
+.nav-bar {
+    background-color: var(--primary-color);
+    padding: 1rem;
+}
+
+.nav-bar ul {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 30px;
-    list-style: none;
+    gap: 2rem;
+
     flex-wrap: wrap;
 }
 
-nav a {
+.nav-bar a {
+    color: var(--white);
     text-decoration: none;
-    color: var(--primary-color);
     font-weight: 600;
     font-size: 1rem;
 }
 
-nav a:hover {
-    color: var(--accent-color);
+.nav-bar a:hover {
+    text-decoration: underline;
 }
 
-/* ==============MAIN CONTENT============== */
+/* -------------------- */
+/* MAIN CONTENT */
+/* -------------------- */
 
 main {
-    max-width: 50%;
-    margin: auto;
-    padding: 40px 20px;
+    max-width: 90vh;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
 }
 
-/* ==============HEADINGS============== */
-
-h1 {
-    font-size: 2.2rem;
-    margin-bottom: 10px;
+main h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
-h2 {
-    margin-top: 20px;
-    margin-bottom: 15px;
+main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--secondary-color);
 }
 
-/* ==============LIST CARDS============== */
-
-ul {
-    list-style: none;
+main p {
+    margin-bottom: 2rem;
+    font-size: 1rem;
 }
 
-li {
-    background: var(--card-color);
-    margin-bottom: 12px;
-    padding: 16px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-}
-
-/* ==============ORGANIZATION LOGOS============== */
-
-li img {
-    width: 40px;
-    margin-right: 10px;
-    vertical-align: middle;
-}
-
-/* ==============HOME LOGO============== */
+/* -------------------- */
+/* IMAGE */
+/* -------------------- */
 
 .main-logo {
-    display: block;
-    margin: 30px auto;
-    max-width: 300px;
+    max-width: 400px;
     width: 100%;
+    height: auto;
+
+    margin: 0 auto;
+    display: block;
 }
 
-/* ==============FOOTER============== */
+/* -------------------- */
+/* FOOTER */
+/* -------------------- */
 
 footer {
-    background: var(--primary-color);
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--white);
+
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+    padding: 1rem;
+
+    font-size: 0.9rem;
 }
 
-/* ==============RESPONSIVE DESIGN============== */
-
-/* ==============Tablets============== */
+/* -------------------- */
+/* MOBILE */
+/* -------------------- */
 
 @media (max-width: 768px) {
 
-    nav ul {
-        gap: 15px;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    main {
-        padding: 30px 15px;
-    }
-
-}
-
-/* ==============Mobile============== */
-
-@media (max-width: 480px) {
-
-    nav ul {
+    .nav-bar ul {
         flex-direction: column;
-        gap: 10px;
-    }
-
-    h1 {
-        font-size: 1.6rem;
-        text-align: center;
-    }
-
-    h2 {
-        text-align: center;
+        align-items: center;
+        gap: 1rem;
     }
 
     main {
-        padding: 20px 12px;
+        margin: 1rem;
+        padding: 1rem;
     }
 
-    li {
-        padding: 14px;
+    main h1 {
+        font-size: 1.7rem;
+    }
+
+    main h2 {
+        font-size: 1.3rem;
     }
 
 }
