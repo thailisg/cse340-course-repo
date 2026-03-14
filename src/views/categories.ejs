@@ -6,10 +6,9 @@
         </h1>
         <h2>Our categories!</h2>
         <ul class="ul-all">
-            <li>Environmental</li>
-            <li>Educational</li>
-            <li>Community Service</li>
-            <li>Health and Wellness</li>
+            <% categories.forEach(category => { %>
+                <li><%= category.name %></li>
+            <% }) %>
         </ul>
     </main>
 
