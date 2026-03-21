@@ -7,6 +7,7 @@ import { projectsPage } from './projects.js';
 import { categoriesPage } from './categories.js';
 import { homePage } from './index.js';
 import { testError } from './errors.js';
+import { showCategoryDetails } from './categories.js';
 
 const router = express.Router();
 
@@ -17,5 +18,6 @@ router.get('/categories', categoriesPage)
 router.get('/testError', testError);
 router.get('/organization/:id', showOrganizationDetailsPage);
 router.get('/project/:id', showProjectDetailsPage);
+router.get('/category/:id', showCategoryDetails)
 
 export default router;
