@@ -10,6 +10,7 @@ import { testError } from './errors.js';
 import { showCategoryDetails } from './categories.js';
 import { showNewOrganizationForm } from './organizations.js';
 import { processNewOrganizationForm } from './organizations.js';
+import { organizationValidation } from './organizations.js';
 
 const router = express.Router();
 
@@ -22,6 +23,6 @@ router.get('/organization/:id', showOrganizationDetailsPage);
 router.get('/project/:id', showProjectDetailsPage);
 router.get('/category/:id', showCategoryDetails);
 router.get('/new-organization', showNewOrganizationForm);
-router.post('/new-organization', processNewOrganizationForm);
+router.post('/new-organization', organizationValidation, processNewOrganizationForm);
 
 export default router;
