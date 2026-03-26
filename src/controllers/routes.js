@@ -8,6 +8,8 @@ import { categoriesPage } from './categories.js';
 import { homePage } from './index.js';
 import { testError } from './errors.js';
 import { showCategoryDetails } from './categories.js';
+import { showNewOrganizationForm } from './organizations.js';
+import { processNewOrganizationForm } from './organizations.js';
 
 const router = express.Router();
 
@@ -18,6 +20,8 @@ router.get('/categories', categoriesPage)
 router.get('/testError', testError);
 router.get('/organization/:id', showOrganizationDetailsPage);
 router.get('/project/:id', showProjectDetailsPage);
-router.get('/category/:id', showCategoryDetails)
+router.get('/category/:id', showCategoryDetails);
+router.get('/new-organization', showNewOrganizationForm);
+router.post('/new-organization', processNewOrganizationForm);
 
 export default router;
