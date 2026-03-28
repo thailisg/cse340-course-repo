@@ -4,16 +4,31 @@
             <%= title %>
         </h1>
         <h2>Upcoming Service Projects</h2>
-        <ul class="ul-all">
+        <ul class="list">
 
             <% serviceProjects.forEach(project => { %>
 
                 <li>
-                    <%= project.date.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) %>: <%= project.title %> (<%= project.organization_name %>)
+                    <div class="card-info">
+
+                        <div class="card-title">
+                            <%= project.title %>
+                        </div>
+
+                        <div class="card-sub">
+                            <%= project.organization_name %>
+                        </div>
+
+                        <div class="card-sub">
+                            <%= project.date.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) %>
+                        </div>
+
+                    </div>
+                    
                 </li>
 
             <% }) %>
-            <p><a href="/new-project">Add a new service project</a></p>
+            <p><a class="btn-link" href="/new-project">Add a new service project</a></p>
         </ul>
     </main>
     <%- include('partials/footer') %>

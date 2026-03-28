@@ -3,17 +3,21 @@
     <main>
         <h1><%= title %></h1>
         <h2><%= category.category_name %></h2>
-        <ul>
+        <ul class="list">
             <% projects.forEach(project => { %>
                 <li>
-                    <a href="/project/<%= project.project_id %>">
-                        <%= project.project_name %>
-                    </a>
+                    <div class="card-info">
+                        <div class="card-title">
+                            <a href="/project/<%= project.project_id %>">
+                                <%= project.project_name %>
+                            </a>
+                        </div>
+                    </div>
                 </li>
             <% }) %>
         </ul>
         <br>
-        <p><a href="/edit-category/<%= category.category_id %>">Edit Category</a></p>
+        <p><a class="btn-link" href="/edit-category/<%= category.category_id %>">Edit Category</a></p>
     </main>
 
 <%- include('partials/footer') %>

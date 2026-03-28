@@ -9,11 +9,19 @@
         <p>Description: <%= organizationDetails.description %></p>
 
         <h3>Service Projects</h3>
-        <ul>
+        <ul class="list">
             <% projects.forEach(project => { %>
-                <li><a href="/project/<%= project.project_id %>"><%= project.title %></a></li>
+                <li>
+                    <div class="card-info">
+                        <div class="card-title">
+                            <a href="/project/<%= project.project_id %>">
+                                <%= project.title %>
+                            </a>
+                        </div>
+                    </div>
+                </li>
             <% }) %>
         </ul>
-        <p><a href="/edit-organization/<%= organizationDetails.organization_id %>">Edit Organization</a></p>
+        <p><a class="btn-link" href="/edit-organization/<%= organizationDetails.organization_id %>">Edit Organization</a></p>
     </main>
     <%- include('partials/footer') %>

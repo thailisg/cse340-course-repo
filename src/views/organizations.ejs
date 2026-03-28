@@ -4,12 +4,36 @@
             <%= title %>
         </h1>
         <p>Here are a few of our partner organizations:</p>
-        <ul class="ul-all">
+        <ul class="list">
 
             <% organizations.forEach(organization => { %>
-                <li><img src="/images/<%= organization.logo_filename %>" alt="<%= organization.name %> logo"><a href="/organization/<%= organization.organization_id %>"><%= organization.name %></a>: <%= organization.contact_email %></li>
+                <li>
+
+                    <div class="card-info">
+
+                        <div class="card-title">
+                            <a href="/organization/<%= organization.organization_id %>">
+                                <%= organization.name %>
+                            </a>
+                        </div>
+
+                        <div class="card-sub">
+                            <%= organization.contact_email %>
+                        </div>
+
+                    </div>
+
+                    <div class="card-actions">
+                        <img 
+                            src="/images/<%= organization.logo_filename %>" 
+                            alt="<%= organization.name %> logo"
+                            class="card-logo"
+                        >
+                    </div>
+
+                </li>
             <% }); %>
         </ul>
-        <p><a href="/new-organization">Add a new organization</a></p>
+        <p><a class="btn-link" href="/new-organization">Add a new organization</a></p>
     </main>
     <%- include('partials/footer') %>

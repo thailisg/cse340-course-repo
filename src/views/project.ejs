@@ -2,33 +2,57 @@
     <main>
         <h1><%= title %></h1>
 
-        <p><strong>Description:</strong> <%= project.description %></p>
+        <div class="card">
 
-        <p><strong>Date:</strong> <%= project.date %></p>
+            <div class="card-info">
 
-        <p><strong>Location:</strong> <%= project.location %></p>
+                <div class="card-title">
+                    <%= project.title %>
+                </div>
 
-        <p>
-            <strong>Organization:</strong>
-            <a href="/organization/<%= project.organization_id %>">
-                <%= project.organization_name %>
-            </a>
-        </p>
+                <div class="card-sub">
+                    <strong>Description:</strong> <%= project.description %>
+                </div>
 
-        <p>
-            <strong>Categories:</strong>
-        </p>
-        <ul>
+                <div class="card-sub">
+                    <strong>Date:</strong> 
+                    <%= new Date(project.date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) %>
+                </div>
+
+                <div class="card-sub">
+                    <strong>Location:</strong> 
+                    <%= project.location %>
+                </div>
+
+                <div class="card-sub">
+                    <strong>Organization:</strong>
+                    <a href="/organization/<%= project.organization_id %>">
+                        <%= project.organization_name %>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <h2>Categories</h2>
+
+        <ul class="list">
             <% categories.forEach(category => { %>
                 <li>
-                    <a href="/category/<%= category.category_id %>">
-                        <%= category.category_name %>
-                    </a>
+                    <div class="card-info">
+                        <div class="card-title">
+                            <a href="/category/<%= category.category_id %>">
+                                <%= category.category_name %>
+                            </a>
+                        </div>
+                    </div>
+
                 </li>
             <% }) %>
         </ul>
         <br>
-        <p><a href="/assign-categories/<%= project.project_id %>">Edit Categories</a></p>
-        <p><a href="/edit-project/<%= project.project_id %>">Edit Project</a></p>
+        <p><a class="btn-link" href="/assign-categories/<%= project.project_id %>">Edit Categories</a></p>
+        <p><a class="btn-link" href="/edit-project/<%= project.project_id %>">Edit Project</a></p>
     </main>
     <%- include('partials/footer') %>

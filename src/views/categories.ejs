@@ -5,13 +5,25 @@
             <%= title %>
         </h1>
         <h2>Our categories!</h2>
-        <ul class="ul-all">
+        <ul class="list">
             <% categories.forEach(category => { %>
-                <li><a href="/category/<%= category.category_id%>"><%= category.name %></a></li>
+                <li>
+                    <div class="card-info">
+                        <div class="card-title">
+                            <a href="/category/<%= category.category_id %>">
+                                <%= category.name %>
+                            </a>
+                        </div>
+
+                        <div class="card-sub">
+                            Category ID: <%= category.category_id %>
+                        </div>
+                    </div>
+                </li>
             <% }) %>
         </ul>
         <br>
-        <p><a href="/new-category">Create New Category</a></p>
+        <p><a class="btn-link" href="/new-category">Create New Category</a></p>
     </main>
 
     <%- include('partials/footer') %>
