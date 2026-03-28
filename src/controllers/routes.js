@@ -19,6 +19,9 @@ import { projectValidation } from './projects.js';
 import { showAssignCategoriesForm } from './categories.js';
 import { processAssignCategoriesForm } from './categories.js';
 import { showEditProjectForm, processEditProjectForm } from './projects.js';
+import { showNewCategoryForm, processNewCategoryForm } from './categories.js';
+import { categoryValidation } from './categories.js';
+import { showEditCategoryForm, processEditCategoryForm } from './categories.js';
 const router = express.Router();
 
 router.get('/',homePage)
@@ -39,6 +42,10 @@ router.get('/assign-categories/:projectId', showAssignCategoriesForm);
 router.post('/assign-categories/:projectId', processAssignCategoriesForm);
 router.get('/edit-project/:id', showEditProjectForm);
 router.post('/edit-project/:id', processEditProjectForm);
+router.get('/new-category', showNewCategoryForm);
+router.post('/new-category', categoryValidation, processNewCategoryForm);
+router.get('/edit-category/:id', showEditCategoryForm);
+router.post('/edit-category/:id', processEditCategoryForm)
 
 
 export default router;
