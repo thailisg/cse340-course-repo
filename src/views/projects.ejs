@@ -12,7 +12,7 @@
                     <div class="card-info">
 
                         <div class="card-title">
-                            <%= project.title %>
+                             <%= project.title %>
                         </div>
 
                         <div class="card-sub">
@@ -22,6 +22,8 @@
                         <div class="card-sub">
                             <%= project.date.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) %>
                         </div>
+
+                        <p><a class="btn-link" href="/project/<%= project.project_id %>">View Project Details</a></p>
 
                     </div>
                     
