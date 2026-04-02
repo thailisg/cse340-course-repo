@@ -30,7 +30,9 @@
                 </li>
 
             <% }) %>
-            <p><a class="btn-link" href="/new-project">Add a new service project</a></p>
+            <% if (user && user.role_name === 'admin') { %>
+                <p><a class="btn-link" href="/new-project">Add a new service project</a></p>
+            <% } %>
         </ul>
     </main>
     <%- include('partials/footer') %>

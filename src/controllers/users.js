@@ -83,7 +83,18 @@ const showDashboard = (req, res) => {
     });
 };
 
+const requireRole = (role) => {
+    return (req, res, next) => {
+        if (req.session.user && req.session.user.role_name === role) {
+            return next();
+        }
+
+        req.flash("error", "You don't have access to this page");
+        return res.redirect('/')
+    }
+}
+
 export { showUserRegistrationForm, processUserRegistrationForm,
     showLoginForm, processLoginForm, processLogout,
-    requireLogin, showDashboard
+    requireLogin, showDashboard, requireRole
  };

@@ -34,6 +34,8 @@
                 </li>
             <% }); %>
         </ul>
-        <p><a class="btn-link" href="/new-organization">Add a new organization</a></p>
+        <% if (user && user.role_name === 'admin') { %>
+            <p><a class="btn-link" href="/new-organization">Add a new organization</a></p>
+        <% } %>
     </main>
     <%- include('partials/footer') %>
