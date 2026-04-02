@@ -21,6 +21,9 @@
             <a href="/organizations" class="btn-secondary">View Organizations</a>
             <a href="/projects" class="btn-secondary">Explore Projects</a>
             <a href="/categories" class="btn-secondary">Browse Categories</a>
+            <% if (isLoggedIn) { %>
+                <p><a href="/dashboard">My Dashboard</a></p>
+            <% } %>
         </div>
     </main>
 <%- include('partials/footer') %>

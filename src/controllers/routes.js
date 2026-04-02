@@ -22,6 +22,13 @@ import { showEditProjectForm, processEditProjectForm } from './projects.js';
 import { showNewCategoryForm, processNewCategoryForm } from './categories.js';
 import { categoryValidation } from './categories.js';
 import { showEditCategoryForm, processEditCategoryForm } from './categories.js';
+import { showUserRegistrationForm } from './users.js';
+import { processUserRegistrationForm } from './users.js';
+import { showLoginForm } from './users.js';
+import { processLoginForm } from './users.js';
+import { processLogout } from './users.js';
+import { requireLogin } from './users.js';
+import { showDashboard } from './users.js';
 const router = express.Router();
 
 router.get('/',homePage)
@@ -46,6 +53,12 @@ router.get('/new-category', showNewCategoryForm);
 router.post('/new-category', categoryValidation, processNewCategoryForm);
 router.get('/edit-category/:id', showEditCategoryForm);
 router.post('/edit-category/:id', processEditCategoryForm)
+router.get('/register', showUserRegistrationForm);
+router.post('/register', processUserRegistrationForm);
+router.get('/login', showLoginForm);
+router.post('/login', processLoginForm);
+router.get('/logout', processLogout);
+router.get('/dashboard', requireLogin, showDashboard);
 
 
 export default router;
