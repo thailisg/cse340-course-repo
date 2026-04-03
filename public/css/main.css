@@ -284,6 +284,21 @@ select:focus {
 }
 
 /* -------------------- */
+/* CHECKBOX IN EDIT CATEGORIES */
+/* -------------------- */
+
+input[type="checkbox"] {
+    width: auto;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* -------------------- */
 /* FOOTER */
 /* -------------------- */
 
