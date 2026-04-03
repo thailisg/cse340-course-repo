@@ -30,6 +30,8 @@ import { processLogout } from './users.js';
 import { requireLogin } from './users.js';
 import { showDashboard } from './users.js';
 import { requireRole } from './users.js';
+import { getUsersPage } from './users.js';
+
 const router = express.Router();
 
 router.get('/',homePage)
@@ -53,13 +55,14 @@ router.post('/edit-project/:id', processEditProjectForm);
 router.get('/new-category', requireRole('admin'), showNewCategoryForm);
 router.post('/new-category', requireRole('admin'), categoryValidation, processNewCategoryForm);
 router.get('/edit-category/:id', requireRole('admin'), showEditCategoryForm);
-router.post('/edit-category/:id', requireRole('admin'), processEditCategoryForm)
+router.post('/edit-category/:id', requireRole('admin'), categoryValidation, processEditCategoryForm)
 router.get('/register', showUserRegistrationForm);
 router.post('/register', processUserRegistrationForm);
 router.get('/login', showLoginForm);
 router.post('/login', processLoginForm);
 router.get('/logout', processLogout);
 router.get('/dashboard', requireLogin, showDashboard);
+router.get('/show-users', requireRole('admin'), getUsersPage)
 
 
 export default router;
