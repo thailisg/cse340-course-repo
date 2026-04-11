@@ -31,6 +31,10 @@ import { requireLogin } from './users.js';
 import { showDashboard } from './users.js';
 import { requireRole } from './users.js';
 import { getUsersPage } from './users.js';
+import { 
+  volunteerForProject,
+  removeVolunteerFromProject
+} from './projects.js';
 
 const router = express.Router();
 
@@ -51,7 +55,7 @@ router.post('/new-project', requireRole('admin'), projectValidation, processNewP
 router.get('/assign-categories/:projectId', requireRole('admin'), showAssignCategoriesForm);
 router.post('/assign-categories/:projectId', requireRole('admin'), processAssignCategoriesForm);
 router.get('/edit-project/:id', showEditProjectForm);
-router.post('/edit-project/:id', processEditProjectForm);
+router.post('/edit-project/:id',projectValidation, processEditProjectForm);
 router.get('/new-category', requireRole('admin'), showNewCategoryForm);
 router.post('/new-category', requireRole('admin'), categoryValidation, processNewCategoryForm);
 router.get('/edit-category/:id', requireRole('admin'), showEditCategoryForm);
@@ -62,7 +66,9 @@ router.get('/login', showLoginForm);
 router.post('/login', processLoginForm);
 router.get('/logout', processLogout);
 router.get('/dashboard', requireLogin, showDashboard);
-router.get('/show-users', requireRole('admin'), getUsersPage)
+router.get('/show-users', requireRole('admin'), getUsersPage);
+router.get('/project/:id/volunteer', requireLogin, volunteerForProject);
+router.get('/project/:id/remove-volunteer', requireLogin, removeVolunteerFromProject);
 
 
 export default router;

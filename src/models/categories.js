@@ -62,7 +62,7 @@ const assignCategoryToProject = async(projectId, categoryId) => {
     VALUES ($1, $2);
   `;
 
-  await db.query(query, [categoryId, projectId]);
+  await db.query(query, [projectId, categoryId]);
 }
 
 const updateCategoryAssignments = async (projectId, categoryIds) => {
@@ -73,7 +73,7 @@ const updateCategoryAssignments = async (projectId, categoryIds) => {
   await db.query(deleteQuery, [projectId]);
 
   for (const categoryId of categoryIds) {
-    await assignCategoryToProject(categoryId, projectId);
+    await assignCategoryToProject(projectId, categoryId);
   }
 };
 

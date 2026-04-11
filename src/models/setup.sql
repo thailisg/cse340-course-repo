@@ -124,3 +124,46 @@ INSERT INTO project_categories (project_id, category_id) VALUES
 (13,5),
 (14,1),
 (15,3);
+
+
+/*Roles*/
+
+CREATE TABLE roles(
+
+	role_id SERIAL PRIMARY KEY,
+	role_name VARCHAR(50) UNIQUE NOT NULL,
+	role_description TEXT
+);
+
+INSERT INTO roles (role_name, role_description) VALUES
+	('user', 'Standard user with basic access'),
+	('admin', 'Administrator with full system access');
+
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    role_id INTEGER REFERENCES roles(role_id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+SELECT * FROM roles;
+
+INSERT INTO users (name, email, password_hash, role_id) 
+VALUES ('testuser', 'test@example.com', 'placeholder_hash', 1);
+
+SELECT u.user_id, u.name, u.email, r.role_name, r.role_description
+FROM users u
+JOIN roles r ON u.role_id = r.role_id;
+
+DELETE FROM users WHERE email = 'test@example.com';
+
+CREATE TABLE volunteers (
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL,
+    project_id INT NOT NULL,
+    UNIQUE (user_id, project_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (project_id) REFERENCES service_projects(project_id) ON DELETE CASCADE
+);
